@@ -1,0 +1,10 @@
+[Unit]
+Description=SJP: configure raspi for headless mode at boot
+
+[Service]
+# Type=Simple
+# User=st33v
+ExecStart=-/usr/local/bin/headless-boot.sh
+
+[Install]
+WantedBy=multi-user.target
