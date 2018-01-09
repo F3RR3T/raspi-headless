@@ -3,7 +3,7 @@
 # SJP 9 Jan 2018
 # Designed to be called from a timer service.
 #
-cpuTemp=echo "scale=1; $(cat /sys/class/thermal/thermal_zone0/temp)/1000" | bc
+cpuTemp=$(echo "scale=1; $(cat /sys/class/thermal/thermal_zone0/temp)/1000" | bc)
 
-mosquitto_pub -h stan -t stan/test/cpu/${cpuTemp}
+mosquitto_pub -h stan -m "CPU temp is ${cpuTemp}" -t stan/test/cpu
 
